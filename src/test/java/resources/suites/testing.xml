@@ -11,7 +11,6 @@
     <test name="AssertVSHamcrest">
         <classes>
             <class name ="com.github.TheDebofNight19.AssertJ"/>
-            <class name ="com.github.TheDebofNight19.AssertJ2"/>
         </classes>
     </test>
 
