@@ -17,19 +17,24 @@ public class AssertJ {
         LOG.info("Before Suite");
     }
 
+    /**
+     * для AssertJ создана пробная проверка, которая пройдет успешно
+     */
     @Test
     public void test1(){
 
-        LOG.info("This is a Wizard assertion test!");
+        LOG.info("This is a Wizard AssertJ test!");
         BigDecimal goldInherited = new BigDecimal(80632.2).setScale(3,BigDecimal.ROUND_DOWN);
         HashMap<Integer, String> wands = new HashMap<>();
         wands.put(13, "Dragon heart string");
         Wizard wizard1 = new Wizard("Draco", "Slytherin", 11, goldInherited, wands);
         assertThat(wizard1).hasFieldOrProperty("name")
-                            .hasFieldOrProperty("house")
-                            .isInstanceOf(Wizard.class)
-                            .hasFieldOrProperty("wands");
+                            .isInstanceOf(Wizard.class);
 
+        assertThat(wizard1.getWands())
+                .containsKeys(13)
+                .doesNotContainKey(7)
+                .doesNotContainEntry(13, "Yew");
     }
 
     @AfterSuite
